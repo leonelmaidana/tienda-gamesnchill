@@ -1,11 +1,14 @@
-import { useState } from 'react'
-import './App.css'
+import './App.css';
+import Navbar from "./components/NavBar/NavBar";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 function App() {
   return (
     <div className="App">
-      <h1>Tienda Games n Chill</h1>
+      <Navbar />
+      <ItemListContainer greeting="Bienvenido a Tienda Games n Chill" />
     </div>
+
   );
 }
 
