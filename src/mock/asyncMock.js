@@ -1,6 +1,8 @@
 const products = [
   {
     id: '1',
+    brand: 'Sony',
+    warranty: '12 meses',
     name: 'PlayStation 5 Slim',
     price: 899999,
     category: 'consolas',
@@ -10,6 +12,8 @@ const products = [
   },
   {
     id: '2',
+    brand: 'Microsoft',
+    warranty: '12 meses',
     name: 'Xbox Series X',
     price: 849999,
     category: 'consolas',
@@ -19,6 +23,8 @@ const products = [
   },
   {
     id: '3',
+    brand: 'Nintendo',
+    warranty: '12 meses',
     name: 'Nintendo Switch OLED',
     price: 449999,
     category: 'consolas',
@@ -28,6 +34,8 @@ const products = [
   },
   {
     id: '4',
+    brand: 'Armado a medida',
+    warranty: '24 meses',
     name: 'PC Gamer Ryzen 5 + RTX 4060',
     price: 1499999,
     category: 'pcs',
@@ -37,6 +45,8 @@ const products = [
   },
   {
     id: '5',
+    brand: 'Nintendo',
+    warranty: 'Sin garantía (producto digital/físico sellado)',
     name: 'The Legend of Zelda: Tears of the Kingdom',
     price: 79999,
     category: 'juegos',
@@ -46,6 +56,8 @@ const products = [
   },
   {
     id: '6',
+    brand: 'Bandai Namco',
+    warranty: 'Sin garantía (producto sellado)',
     name: 'Elden Ring',
     price: 59999,
     category: 'juegos',
@@ -55,6 +67,8 @@ const products = [
   },
   {
     id: '7',
+    brand: 'EA Sports',
+    warranty: 'Sin garantía (producto sellado)',
     name: 'EA Sports FC 26',
     price: 69999,
     category: 'juegos',
@@ -64,6 +78,8 @@ const products = [
   },
   {
     id: '8',
+    brand: 'Sony',
+    warranty: '6 meses',
     name: 'Joystick DualSense',
     price: 109999,
     category: 'accesorios',
@@ -73,6 +89,8 @@ const products = [
   },
   {
     id: '9',
+    brand: 'HyperX',
+    warranty: '12 meses',
     name: 'Auriculares Gamer con micrófono',
     price: 89999,
     category: 'accesorios',
@@ -87,5 +105,19 @@ export const getProducts = () => {
     setTimeout(() => {
       resolve(products)
     }, 2000)
+  })
+}
+
+export const getProductById = (productId) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const product = products.find((p) => p.id === String(productId))
+
+      if (product) {
+        resolve(product)
+      } else {
+        reject(new Error(`No existe el producto con id ${productId}`))
+      }
+    }, 1500)
   })
 }

@@ -1,0 +1,16 @@
+.item-detail-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.item-detail-container__message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6b7280;
+}
+
+.item-detail-container__message--error {
+  color: #b91c1c;
+  font-weight: 600;
+}
