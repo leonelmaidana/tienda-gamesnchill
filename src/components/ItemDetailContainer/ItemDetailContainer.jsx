@@ -6,6 +6,7 @@ import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
   const { id } = useParams()
+const ItemDetailContainer = ({ productId = '1' }) => {
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -18,6 +19,8 @@ const ItemDetailContainer = () => {
     setProduct(null)
 
     getProductById(id)
+
+    getProductById(productId)
       .then((data) => {
         if (!ignore) setProduct(data)
       })
@@ -32,6 +35,7 @@ const ItemDetailContainer = () => {
       ignore = true
     }
   }, [id])
+  }, [productId])
 
   return (
     <section className="item-detail-container">
@@ -44,6 +48,7 @@ const ItemDetailContainer = () => {
           </p>
         </>
       )}
+      {error && <p className="item-detail-container__message item-detail-container__message--error">{error}</p>}
       {!loading && !error && product && <ItemDetail product={product} />}
     </section>
   )
