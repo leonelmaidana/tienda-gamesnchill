@@ -1,3 +1,7 @@
+import { Link } from 'react-router-dom'
+import './Item.css'
+
+const Item = ({ id, name, price, img, category, stock, description }) => {
 import './Item.css'
 
 const Item = ({ name, price, img, category, stock, description }) => {
@@ -5,6 +9,9 @@ const Item = ({ name, price, img, category, stock, description }) => {
     <article className="item">
       <img className="item__img" src={img} alt={name} />
       <div className="item__body">
+        <Link to={`/category/${category}`} className="item__category">
+          {category}
+        </Link>
         <span className="item__category">{category}</span>
         <h2 className="item__name">{name}</h2>
         <p className="item__description">{description}</p>
@@ -12,6 +19,9 @@ const Item = ({ name, price, img, category, stock, description }) => {
           <span className="item__price">${price.toLocaleString('es-AR')}</span>
           <span className="item__stock">Stock: {stock}</span>
         </div>
+        <Link to={`/item/${id}`} className="item__detail-link">
+          Ver detalle
+        </Link>
       </div>
     </article>
   )

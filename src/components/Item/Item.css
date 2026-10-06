@@ -67,3 +67,24 @@
   font-size: 0.8rem;
   color: #6b7280;
 }
+
+a.item__category {
+  text-decoration: none;
+}
+
+.item__detail-link {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background-color: #111827;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.item__detail-link:hover {
+  background-color: #f59e0b;
+  color: #111827;
+}

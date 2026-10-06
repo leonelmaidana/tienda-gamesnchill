@@ -64,3 +64,8 @@
     font-size: 0.9rem;
   }
 }
+
+.navbar__link--active {
+  color: #ffffff;
+  border-bottom-color: #f59e0b;
+}
