@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import useCart from '../../hooks/useCart'
+import { useState } from 'react'
+import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
 const ItemDetail = ({ product }) => {
@@ -9,6 +11,10 @@ const ItemDetail = ({ product }) => {
 
   const handleAdd = (quantity) => {
     addItem(product, quantity)
+  const [added, setAdded] = useState(0)
+
+  const handleAdd = (quantity) => {
+    setAdded(quantity)
   }
 
   return (
@@ -44,6 +50,12 @@ const ItemDetail = ({ product }) => {
           </div>
         ) : (
           <ItemCount stock={stock} initial={1} onAdd={handleAdd} />
+        <ItemCount stock={stock} initial={1} onAdd={handleAdd} />
+
+        {added > 0 && (
+          <p className="item-detail__added">
+            Agregaste {added} {added === 1 ? 'unidad' : 'unidades'} al carrito.
+          </p>
         )}
       </div>
     </article>
