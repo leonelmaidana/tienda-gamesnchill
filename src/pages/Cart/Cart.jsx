@@ -46,6 +46,9 @@ const Cart = () => {
           <button className="cart__clear" onClick={clear}>
             Vaciar carrito
           </button>
+          <Link to="/checkout" className="cart__checkout">
+            Finalizar compra
+          </Link>
           <button className="cart__checkout" onClick={() => alert('Próximamente: finalizar compra')}>
             Finalizar compra
           </button>

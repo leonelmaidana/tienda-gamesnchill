@@ -1,9 +1,21 @@
 import { Link, NavLink } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
+import useAuth from '../../hooks/useAuth'
 import { categories } from '../../config/categories'
 import './Navbar.css'
 
 const Navbar = () => {
+  const { user, loading, logout } = useAuth()
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+    } catch (err) {
+      console.error(err)
+      alert('No se pudo cerrar la sesión. Intentá nuevamente.')
+    }
+  }
+
   return (
     <header className="navbar">
       <Link to="/" className="navbar__logo">
@@ -25,6 +37,29 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+
+        {!loading && (
+          <div className="navbar__auth">
+            {user ? (
+              <>
+                <span className="navbar__user">{user.email}</span>
+                <button className="navbar__button" onClick={handleLogout}>
+                  Cerrar sesión
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="navbar__link">
+                  Ingresar
+                </Link>
+                <Link to="/register" className="navbar__button navbar__button--link">
+                  Registrarse
+                </Link>
+              </>
+            )}
+          </div>
+        )}
+
         <CartWidget />
       </nav>
     </header>

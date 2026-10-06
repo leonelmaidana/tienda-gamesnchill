@@ -121,3 +121,8 @@
     flex-wrap: wrap;
   }
 }
+
+a.cart__checkout {
+  display: inline-block;
+  text-decoration: none;
+}
