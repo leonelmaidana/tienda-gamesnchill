@@ -1,0 +1,125 @@
+.item-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.item-detail__img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.item-detail__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 2rem 2rem 2rem 0;
+}
+
+.item-detail__category {
+  align-self: flex-start;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background-color: #fef3c7;
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.item-detail__name {
+  font-size: 1.75rem;
+  color: #111827;
+}
+
+.item-detail__price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.item-detail__description {
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.item-detail__extras {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.item-detail__stock {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #047857;
+}
+
+.item-detail__stock--out {
+  color: #b91c1c;
+}
+
+.item-detail__added {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #047857;
+}
+
+@media (max-width: 720px) {
+  .item-detail {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .item-detail__info {
+    padding: 1.5rem;
+  }
+}
+
+.item-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.item-detail__actions .item-detail__added {
+  flex-basis: 100%;
+}
+
+.item-detail__checkout,
+.item-detail__continue {
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.item-detail__checkout {
+  background-color: #f59e0b;
+  color: #111827;
+}
+
+.item-detail__continue {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.item-detail__checkout:hover,
+.item-detail__continue:hover {
+  opacity: 0.85;
+}
