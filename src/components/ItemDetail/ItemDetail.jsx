@@ -1,9 +1,16 @@
+import { Link } from 'react-router-dom'
+import ItemCount from '../ItemCount/ItemCount'
+import useCart from '../../hooks/useCart'
 import { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
 const ItemDetail = ({ product }) => {
   const { name, price, img, category, description, stock, brand, warranty } = product
+  const { addItem, isInCart } = useCart()
+
+  const handleAdd = (quantity) => {
+    addItem(product, quantity)
   const [added, setAdded] = useState(0)
 
   const handleAdd = (quantity) => {
@@ -31,6 +38,18 @@ const ItemDetail = ({ product }) => {
           {stock > 0 ? `Stock disponible: ${stock} unidades` : 'Sin stock'}
         </p>
 
+        {isInCart(product.id) ? (
+          <div className="item-detail__actions">
+            <p className="item-detail__added">Producto agregado al carrito.</p>
+            <Link to="/cart" className="item-detail__checkout">
+              Terminar mi compra
+            </Link>
+            <Link to="/" className="item-detail__continue">
+              Seguir comprando
+            </Link>
+          </div>
+        ) : (
+          <ItemCount stock={stock} initial={1} onAdd={handleAdd} />
         <ItemCount stock={stock} initial={1} onAdd={handleAdd} />
 
         {added > 0 && (

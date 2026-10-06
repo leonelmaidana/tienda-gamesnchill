@@ -44,6 +44,16 @@ const ItemListContainer = ({ greeting }) => {
         <ItemList products={products} />
       ) : (
         <p className="item-list-container__loading">No hay productos en esta categoría.</p>
+  return (
+    <main className="item-list-container">
+      <h1 className="item-list-container__greeting">{title}</h1>
+
+      {loading ? (
+        <p className="item-list-container__loading">Cargando productos...</p>
+      ) : products.length > 0 ? (
+        <ItemList products={products} />
+      ) : (
+        <p className="item-list-container__loading">No hay productos en esta categoría.</p>
   }, [])
 
   return (

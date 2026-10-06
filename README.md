@@ -51,3 +51,12 @@ Cambios y componentes nuevos:
 - `getProducts(categoryId)` en `asyncMock.js`: filtra por categoría cuando recibe un id.
 
 Nota: ahora hay que correr `npm install` para instalar `react-router-dom`.
+
+V6 (checkpoint-4):
+Carrito de compras con Context API.
+- `src/context/CartContext.jsx`: exporta `CartContext` y `CartProvider`, que administra el estado `cart` (array) con `addItem(item, quantity)`, `removeItem(itemId)`, `clear()` e `isInCart(id)`. Todas las actualizaciones son inmutables (`map`, `filter`, spread). Si el producto ya está en el carrito se suma la cantidad (sin superar el stock) en lugar de duplicarlo. También expone `totalQuantity` y `totalPrice`, calculados a partir de `cart`.
+- `src/hooks/useCart.js`: hook que consume el contexto.
+- `App.jsx`: `CartProvider` envuelve a `BrowserRouter`, así todos los componentes acceden al carrito. Nueva ruta `/cart`.
+- `ItemDetail`: al presionar "Agregar al carrito" en `ItemCount` llama a `addItem(product, quantity)`; después muestra "Terminar mi compra" (va a `/cart`) y "Seguir comprando".
+- `pages/Cart`: si el carrito está vacío muestra un mensaje y un link al catálogo; si no, lista nombre, cantidad, precio unitario y subtotal de cada producto con un botón "Eliminar", el total, "Vaciar carrito" y un placeholder de "Finalizar compra".
+- `CartWidget`: link a `/cart` que muestra la suma de las cantidades del carrito; si está vacío no muestra el número.

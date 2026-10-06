@@ -88,3 +88,38 @@
     padding: 1.5rem;
   }
 }
+
+.item-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.item-detail__actions .item-detail__added {
+  flex-basis: 100%;
+}
+
+.item-detail__checkout,
+.item-detail__continue {
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.item-detail__checkout {
+  background-color: #f59e0b;
+  color: #111827;
+}
+
+.item-detail__continue {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.item-detail__checkout:hover,
+.item-detail__continue:hover {
+  opacity: 0.85;
+}
